@@ -12,7 +12,7 @@ const SongCard = ({song,isPlaying,activeSong,data,i}) => {
     dispatch(playPause(false));
   };
 
-  const handlePlayClick = () => {
+  const handlePlayClick = (song, data, i) => {
     dispatch(setActiveSong({ song,data,i }));
     dispatch(playPause(true));
   };
@@ -26,9 +26,8 @@ const SongCard = ({song,isPlaying,activeSong,data,i}) => {
       <PlayPause
        song={song}
        handlePause={handlePauseClick}
-       handlePlay={handlePlayClick} 
+       handlePlay={() => handlePlayClick(song, data, i)} 
        isPlaying={isPlaying}
-       i={i}
        />
       </div>
       <img alt="song_img" src={song.images?.coverart}/>
