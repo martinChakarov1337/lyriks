@@ -24,10 +24,11 @@ const SongCard = ({song,isPlaying,activeSong,data,i}) => {
     <div className="relative w-full h-56 group">
       <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
       <PlayPause
+       isPlaying={isPlaying}
+       аctiveSong={activeSong}
        song={song}
        handlePause={handlePauseClick}
-       handlePlay={() => handlePlayClick(song, data, i)} 
-       isPlaying={isPlaying}
+       handlePlay={() => handlePlayClick(song,data,i)} 
        />
       </div>
       <img alt="song_img" src={song.images?.coverart}/>
